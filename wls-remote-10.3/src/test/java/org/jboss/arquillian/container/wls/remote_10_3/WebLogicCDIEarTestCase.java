@@ -25,8 +25,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.EnterpriseArchive;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
-import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,6 +44,7 @@ public class WebLogicCDIEarTestCase {
 
     @Deployment
     public static EnterpriseArchive deploy() {
+    	
       WebArchive webArchive = ShrinkWrap.create(WebArchive.class, "foo.war")
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
             .addClasses(SimpleBean.class, MyServlet.class)
@@ -52,17 +52,19 @@ public class WebLogicCDIEarTestCase {
             .addClass(WebLogicCDIEarTestCase.class)
             .setWebXML("in-container-web.xml");
       
+      GenericArchive genericArchive = Maven.configureResolver().workOffline().loadPomFromFile("pom.xml").resolve("org.jboss.weld.servlet:weld-servlet")
+    		   .withoutTransitivity().asSingle(GenericArchive.class);
+      
       EnterpriseArchive enterpriseArchive = ShrinkWrap.create(EnterpriseArchive.class, "foo.ear")
             .addAsModule(webArchive)
             // Add Weld-Servlet as an enterprise lib, since Arquillian-CDI enricher is also added into EarRoot/lib.
             // If Weld-Servlet is placed in WEB-INF\lib, Weld will not be able to load the CDI enricher service.
-            .addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class)
-                  .loadMetadataFromPom("pom.xml")
-                  .goOffline()
-                  .artifact("org.jboss.weld.servlet:weld-servlet")
-                  .resolveAs(GenericArchive.class));
+            .addAsLibraries(genericArchive);
+      
+      System.out.println(webArchive.toString(true));
       
       return enterpriseArchive;
+      
     }
 
    @Test

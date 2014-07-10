@@ -25,8 +25,7 @@ import org.jboss.shrinkwrap.api.GenericArchive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
-import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,15 +44,20 @@ public class WebLogicCDIWarTestCase {
 
     @Deployment
     public static WebArchive deploy() {
-      return ShrinkWrap.create(WebArchive.class, "foo.war")
+    	
+    	GenericArchive genericArchive = Maven.configureResolver().workOffline().loadPomFromFile("pom.xml").resolve("org.jboss.weld.servlet:weld-servlet")
+     		   .withoutTransitivity().asSingle(GenericArchive.class);
+    	
+    	WebArchive webArchive = ShrinkWrap.create(WebArchive.class, "foo.war")
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
             .addClasses(SimpleBean.class, MyServlet.class)
             .setWebXML("in-container-web.xml")
-            .addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class)
-                  .loadMetadataFromPom("pom.xml")
-                  .goOffline()
-                  .artifact("org.jboss.weld.servlet:weld-servlet")
-                  .resolveAs(GenericArchive.class));
+            .addAsLibraries(genericArchive);
+    	
+		System.out.println(webArchive.toString(true));
+
+		return webArchive;
+      
     }
 
     @Test

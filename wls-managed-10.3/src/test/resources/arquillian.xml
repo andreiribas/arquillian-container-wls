@@ -12,27 +12,27 @@
 
     <container qualifier="wls" default="true">
         <configuration>
-            <property name="middlewareHome">/opt/wls1036/wls1036_dev</property>
-            <property name="wlHome">/opt/wls1036/wls1036_dev/wlserver</property>
-            <property name="domainDirectory">/opt/wls1036/wls1036_domains/base_domain</property>
+            <property name="middlewareHome">C:\Oracle\Middleware_11</property>
+            <property name="wlHome">C:\Oracle\Middleware_11\wlserver_10.3</property>
+            <property name="domainDirectory">C:\Oracle\Middleware_11\user_projects\domains\testdomain2</property>
             <property name="jvmOptions">-Xdebug -Xrunjdwp:transport=dt_socket,address=10000,server=y,suspend=n</property>
             <property name="outputToConsole">true</property>
             <property name="adminUrl">t3://localhost:7001</property>
             <property name="adminUserName">weblogic</property>
-            <property name="adminPassword">welcome1</property>
+            <property name="adminPassword">weblogic11g</property>
             <property name="target">AdminServer</property>
         </configuration>
     </container>
     
     <container qualifier="wls-ssl-demotrust">
         <configuration>
-            <property name="middlewareHome">/opt/wls1036/wls1036_dev</property>
-            <property name="wlHome">/opt/wls1036/wls1036_dev/wlserver</property>
-            <property name="domainDirectory">/opt/wls1036/wls1036_domains/base_domain</property>
+            <property name="middlewareHome">C:\Oracle\Middleware_11</property>
+            <property name="wlHome">C:\Oracle\Middleware_11\wlserver_10.3</property>
+            <property name="domainDirectory">C:\Oracle\Middleware_11\user_projects\domains\testdomain2</property>
             <property name="adminUrl">t3s://localhost:7002</property>
             <property name="outputToConsole">true</property>
             <property name="adminUserName">weblogic</property>
-            <property name="adminPassword">welcome1</property>
+            <property name="adminPassword">weblogic11g</property>
             <property name="target">AdminServer</property>
             <property name="useDemoTrust">true</property>
             <property name="ignoreHostNameVerification">true</property>
@@ -44,9 +44,9 @@
         <configuration>
             <property name="adminUrl">t3s://localhost:9002</property>
             <property name="adminUserName">weblogic</property>
-            <property name="adminPassword">weblogic$1</property>
+            <property name="adminPassword">weblogic11g</property>
             <property name="target">AdminServer</property>
-            <property name="wlHome">C:\Oracle\Middleware\wlserver_10.3</property>
+            <property name="wlHome">C:\Oracle\Middleware_11\wlserver_10.3</property>
             <property name="useCustomTrust">true</property>
             <property name="trustStoreLocation">C:\keystores\trust\hostname.jks</property>
             <property name="trustStorePassword">password</property>

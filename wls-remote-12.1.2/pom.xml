@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>arquillian-parent-wls</artifactId>
         <groupId>org.jboss.arquillian.container</groupId>
-        <version>1.0.0.Final-SNAPSHOT</version>
+        <artifactId>arquillian-parent-wls</artifactId>
+        <version>1.1.6.Compatible</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>arquillian-wls-remote-12.1.2</artifactId>
@@ -11,7 +11,13 @@
     <description>The remote container adapter for WebLogic Server 12.1.2 (12c)</description>
     <properties>
         <version.jboss.javaee-6_api>1.0.0.Final</version.jboss.javaee-6_api>
-        <cdi.api.version>1.0-SP1</cdi.api.version>
+        <servlet.api.version>2.5.0.GA</servlet.api.version>
+		<cdi.api.version>1.0</cdi.api.version>
+		<arquillian.version>1.1.6.Final-SNAPSHOT</arquillian.version>
+		<shrinkwrap.version>2.0.0-alpha-6</shrinkwrap.version>
+		<junit.version>4.10</junit.version>
+		<weld-servlet.version>1.2.0-SNAPSHOT</weld-servlet.version>
+		<junit.version>4.10</junit.version>
     </properties>
     <dependencies>
         <dependency>
@@ -22,30 +28,37 @@
         <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
             <artifactId>arquillian-container-spi</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
             <artifactId>arquillian-container-test-spi</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.protocol</groupId>
             <artifactId>arquillian-protocol-servlet</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-cdi</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-resource</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-ejb</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-initialcontext</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         
         <!-- Java EE 6 standards support -->
@@ -61,21 +74,25 @@
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
+            <version>${arquillian.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.shrinkwrap.descriptors</groupId>
             <artifactId>shrinkwrap-descriptors-api-javaee</artifactId>
+            <version>${shrinkwrap.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.shrinkwrap.descriptors</groupId>
             <artifactId>shrinkwrap-descriptors-impl-javaee</artifactId>
+            <version>${shrinkwrap.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 

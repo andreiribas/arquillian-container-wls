@@ -4,14 +4,23 @@
     <parent>
         <groupId>org.jboss.arquillian.container</groupId>
         <artifactId>arquillian-parent-wls</artifactId>
-        <version>1.0.0.Final-SNAPSHOT</version>
+        <version>1.1.6.Compatible</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>arquillian-wls-embedded-12.1</artifactId>
     <name>Arquillian Container WebLogic Embedded 12.1</name>
     <description>The container adapter for embedded WebLogic Server 12.1. Uses the Embeddable EJB API.</description>
+    
     <properties>
-        <version.javaee-6_api>6.0</version.javaee-6_api>
+        <version.jboss.javaee-6_api>1.0.0.Final</version.jboss.javaee-6_api>
+        <servlet.api.version>2.5.0.GA</servlet.api.version>
+		<cdi.api.version>1.0</cdi.api.version>
+		<arquillian.version>1.1.6.Final-SNAPSHOT</arquillian.version>
+		<shrinkwrap.version>2.0.0-alpha-6</shrinkwrap.version>
+		<junit.version>4.10</junit.version>
+		<weld-servlet.version>1.2.0-SNAPSHOT</weld-servlet.version>
+		<junit.version>4.10</junit.version>
+		<version.javaee-6_api>6.0</version.javaee-6_api>
     </properties>
 
     <dependencies>
@@ -23,49 +32,59 @@
         <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
             <artifactId>arquillian-container-spi</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
             <artifactId>arquillian-container-test-spi</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         
         <!-- Enrichers -->
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-cdi</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-resource</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-ejb</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-initialcontext</artifactId>
+            <version>${arquillian.version}</version>
         </dependency>
         
         <!-- testing -->
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
+            <version>${arquillian.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.shrinkwrap.descriptors</groupId>
             <artifactId>shrinkwrap-descriptors-api-javaee</artifactId>
+            <version>${shrinkwrap.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.shrinkwrap.descriptors</groupId>
             <artifactId>shrinkwrap-descriptors-impl-javaee</artifactId>
+            <version>${shrinkwrap.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         

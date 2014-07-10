@@ -12,9 +12,9 @@
 
     <container qualifier="wls" default="true">
         <configuration>
-            <property name="middlewareHome">/opt/wls1212/wls1212_dev</property>
-            <property name="wlHome">/opt/wls1211/wls1212_dev/wlserver</property>
-            <property name="domainDirectory">/opt/wls1212/wls1212_domains/base_domain</property>
+            <property name="middlewareHome">C:\Oracle\Middleware_12</property>
+            <property name="wlHome">C:\Oracle\Middleware_12\Oracle_Home\wlserver</property>
+            <property name="domainDirectory">C:\Oracle\Middleware_12\Oracle_Home\user_projects\domains\test3</property>
             <property name="adminUrl">t3://localhost:7001</property>
             <property name="adminUserName">weblogic</property>
             <property name="adminPassword">welcome1</property>
@@ -24,9 +24,9 @@
     
     <container qualifier="wls-ssl-demotrust">
         <configuration>
-            <property name="middlewareHome">/opt/wls1212/wls1212_dev</property>
-            <property name="wlHome">/opt/wls1212/wls1212_dev/wlserver</property>
-            <property name="domainDirectory">/opt/wls1212/wls1212_domains/base_domain</property>
+            <property name="middlewareHome">C:\Oracle\Middleware_12</property>
+            <property name="wlHome">C:\Oracle\Middleware_12\Oracle_Home\wlserver</property>
+            <property name="domainDirectory">C:\Oracle\Middleware_12\Oracle_Home\user_projects\domains\test3</property>
             <property name="adminUrl">t3s://localhost:7002</property>
             <property name="adminUserName">weblogic</property>
             <property name="adminPassword">welcome1</property>

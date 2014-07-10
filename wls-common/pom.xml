@@ -3,20 +3,26 @@
     <parent>
         <artifactId>arquillian-parent-wls</artifactId>
         <groupId>org.jboss.arquillian.container</groupId>
-        <version>1.0.0.Final-SNAPSHOT</version>
+        <!-- <version>1.0.0.Final-SNAPSHOT</version> -->
+        <version>1.1.6.Compatible</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>arquillian-wls-common</artifactId>
     <name>Arquillian Container WebLogic Common Functionality</name>
 
+	
     <dependencies>
         <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
             <artifactId>arquillian-container-spi</artifactId>
+             <version>${version.arquillian_core}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.container</groupId>
             <artifactId>arquillian-container-test-spi</artifactId>
+             <version>${version.arquillian_core}</version>
         </dependency>
     </dependencies>
+    
+     
 </project>

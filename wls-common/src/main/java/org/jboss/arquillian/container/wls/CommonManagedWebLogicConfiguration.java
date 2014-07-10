@@ -44,6 +44,10 @@ public class CommonManagedWebLogicConfiguration extends CommonWebLogicConfigurat
     public CommonManagedWebLogicConfiguration() {
         super();
     }
+    
+    public CommonManagedWebLogicConfiguration(int timeoutInSeconds) {
+    	this.timeout = timeoutInSeconds;
+    }
 
     @Override
     public void validate() throws ConfigurationException {

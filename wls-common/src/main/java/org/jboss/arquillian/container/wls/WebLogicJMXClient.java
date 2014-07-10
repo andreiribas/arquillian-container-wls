@@ -25,9 +25,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
-import javax.management.*;
+import javax.management.MBeanServerConnection;
+import javax.management.MalformedObjectNameException;
+import javax.management.ObjectName;
 import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
 import javax.management.remote.JMXServiceURL;
@@ -249,8 +250,6 @@ public class WebLogicJMXClient
       }
    }
 
-   private static final Logger logger = Logger.getLogger(WebLogicJMXClient.class.getName());
-   
    private static final String RUNNING = "RUNNING";
    
    private static final ThreadLocal<String> trustStorePath = new ThreadLocal<String>();
@@ -346,7 +345,7 @@ public class WebLogicJMXClient
       if ("STATE_COMPLETED".equals(state) || "STATE_FAILED".equals(state))
         return state;
       try {
-        Thread.currentThread().sleep(1000);
+        Thread.sleep(1000);
       } catch (InterruptedException ex) {
         //ignore
       }
